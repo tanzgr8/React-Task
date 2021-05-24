@@ -3,9 +3,9 @@ import Name from "./Name"
  class App extends Component{
      render(){
        return  <>
-         <Name />
-         <Name />
-         <Name />
+         <Name name="TAnzeel"/>
+         <Name name="Saba"/>
+         <Name name="Rehan"/>
          </>
      }
  }
