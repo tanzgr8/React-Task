@@ -15,7 +15,7 @@ class App  extends Component{
     );
   }
   handleClick=()=>{
-    console.log("CLicked ",this)
+this.setState({name:"Saba",roll:105});
   }
 }
 export default App;
