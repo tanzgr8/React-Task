@@ -1,14 +1,21 @@
-import React from "react";
-import useName from "./Name";
-// import Name from "./Name"
-const App =()=>{
-  const name = useName();
-  return(
-    <React.Fragment>
-    <h1> Name : {name.name}</h1>
-   <input type="text" id="name"></input>
-    <button type="button" onClick={name.change}>ClickME</button>
-  </React.Fragment>
-  )
+import React, { Component } from 'react'
+class App  extends Component{
+  constructor(props){
+    super(props);
+    this.state ={
+      name:"Tanzeel",
+      roll: this.props.roll
+    };
+  }
+  render(){
+    return( <>
+     <h1>Hemllo {this.state.name} and your roll number is {this.state.roll}</h1>
+     <button onClick={this.handleClick}> Click Me</button>
+    </>
+    );
+  }
+  handleClick=()=>{
+    console.log("CLicked ",this)
+  }
 }
 export default App;
