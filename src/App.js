@@ -1,21 +1,20 @@
-import React, { Component } from 'react'
-class App  extends Component{
-  constructor(props){
-    super(props);
-    this.state ={
-      name:"Tanzeel",
-      roll: this.props.roll
-    };
-  }
-  render(){
-    return( <>
-     <h1>Hemllo {this.state.name} and your roll number is {this.state.roll}</h1>
-     <button onClick={this.handleClick}> Click Me</button>
-    </>
-    );
-  }
-  handleClick=()=>{
-this.setState({name:"Saba",roll:105});
+import React, { Component } from "react";
+
+export class App extends Component {
+state={
+  value:"Tanzeel"
+};
+handleChange=(e)=>{
+this.setState({value : e.target.value.toUpperCase()});
+}
+  render() {
+    return (
+    <>
+    <form>
+      <input type="text" value={this.state.value} onChange={this.handleChange} />
+
+    </form>
+    </>);
   }
 }
 export default App;
