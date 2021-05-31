@@ -1,39 +1,29 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-export class App extends Component {
-  state = {
-    name: "Tanzeel",
-    pass:""
-  };
-  handleChange = (e) => {
-   const value =e.target.name==="pass"?e.target.value.toUpperCase():e.target.value;
-   this.setState({[e.target.name]:value})
-  };
+export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.textInput=React.createRef();
+    this.state={
+      value:""
+    };
+  }
+  handleSubmit=e=>{
+    e.preventDefault();
+    this.setState({value:this.textInput.current.value});
+  }
+  
   render() {
     return (
-      <>
-        <form>
-          <label>
-            Name
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Password
-            <input
-              type="text"
-              name="pass"
-              value={this.state.pass}
-              onChange={this.handleChange}
-            />
-          </label>
-        </form>
-      </>
-    );
+  <React.Fragment>
+    <h1>Hemlllo {this.state.value}</h1>
+    <form onSubmit={this.handleSubmit}>
+      Input Name <input type="text" ref={this.textInput}/>
+      <input type="submit" value="Submit"/>
+    </form>
+  </React.Fragment>
+    )
   }
 }
-export default App;
+
+
