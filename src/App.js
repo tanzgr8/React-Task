@@ -12,15 +12,12 @@ export default class App extends Component {
   }
   handleSubmit=(e)=>{
     e.preventDefault();
+   
     if(this.valid()){
       alert("Form Submitted");
-      this.setState({
-        nameerr:"",
-        passerr:""
-      })
     }
   }
-  valid(){
+  valid=()=>{
     if(!this.state.name.includes("@")&&this.state.pass.length<5)
     {this.setState({
       nameerr:"Invalid Email",
@@ -29,16 +26,22 @@ export default class App extends Component {
   return false;}
     else if(!this.state.name.includes("@")){
       this.setState({
-        nameerr:"Invalid Email"
+        nameerr:"Invalid Email",
+        passerr:""
       })
       return false;
     }
     else if(this.state.pass.lenght<5){
       this.setState({
+        nameerr:"",
         passerr:"Password Should Be atleast 6 characters long"
       })
       return false;
      } else{
+      this.setState({
+        nameerr:"",
+        passerr:""
+      })
       return true;
     }
   }
@@ -46,12 +49,12 @@ export default class App extends Component {
     return (
   <React.Fragment>
     <h1>Hemlllo </h1>
-    <form  onSubmit={this.handleSubmit()}>
-      Input EmailId <input type="text"onChange={(e)=>{this.setState({name:e.target.value})}} />
+    <form>
+      Input EmailId <input name="Email" type="text"onChange={(e)=>{this.setState({name:e.target.value})}} />
       <p>{this.state.nameerr}</p>
-      Input Pasword <input type="text" onChange={(e)=>{this.setState({name:e.target.value})}} />
+      Input Pasword <input name="pass"type="text" onChange={(e)=>{this.setState({pass:e.target.value})}} />
       <p>{this.state.passerr}</p>
-      <input type="submit" value="Submit"/>
+      <input type="submit" value="Submit" onClick={(e)=>this.handleSubmit(e)}/>
     </form>
   </React.Fragment>
     )
