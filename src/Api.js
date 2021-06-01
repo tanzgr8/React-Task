@@ -39,7 +39,7 @@ arr:[]
                         <td>{i}</td>
                         <td>{el.name}</td>
                         <td>{el.capital}</td>
-                        <td><img src={el.flag} height="80px" width="80px"/></td>
+                        <td><img src={el.flag} height="100px" width="100px"/></td>
                     </tr>    
                   )
                   )}
