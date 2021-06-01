@@ -46,12 +46,12 @@ export default class App extends Component {
     return (
   <React.Fragment>
     <h1>Hemlllo </h1>
-    <form >
+    <form  onSubmit={this.handleSubmit()}>
       Input EmailId <input type="text"onChange={(e)=>{this.setState({name:e.target.value})}} />
       <p>{this.state.nameerr}</p>
       Input Pasword <input type="text" onChange={(e)=>{this.setState({name:e.target.value})}} />
       <p>{this.state.passerr}</p>
-      <input type="submit" value="Submit" onClick={this.handleSubmit(e)}/>
+      <input type="submit" value="Submit"/>
     </form>
   </React.Fragment>
     )
