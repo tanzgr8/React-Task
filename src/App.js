@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Name from './Name'
-
+import Name from './Name';
+var data;
 export default class App extends Component {
 constructor(){
 super();
@@ -10,23 +10,28 @@ country:"",
 capital:""
 }
 }
+Change=(e)=>{
+  e.preventDefault();
+data=this.state;
+console.log(data);
+}
 handleChange=e=>{
-  const value=e.target.value;
-  this.setState({[e.target.name]:value});
+  this.setState({[e.target.name]:e.target.value});
 }
   render() {
     return (
     <React.Fragment>
       <form>
         <label>Name
-        <input type="text" name={this.state.name} onChange={this.handleChange}/>
+        <input type="text" name="name" onChange={this.handleChange}/>
         </label>
         <label>Country
-        <input type="text" name={this.state.country} onChange={this.handleChange}/>
+        <input type="text" name="country" onChange={this.handleChange}/>
         </label>
         <label>capital
-        <input type="text" name={this.state.capital} onChange={this.handleChange}/>
+        <input type="text" name="capital" onChange={this.handleChange}/>
         </label>
+        <button onClick={this.Change}>SUBMIT</button>
         <Name  data={this.state}/>
       </form>
     </React.Fragment>
