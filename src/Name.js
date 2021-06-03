@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class Name extends Component {
  
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
         <h1>You Entered:</h1>
