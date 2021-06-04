@@ -13,11 +13,7 @@ capital:"",
 send:false
 }
 } 
-renderName = () => {
-  if (this.state.send) {
-    return <Name data={data}/>;
-  } 
-}
+
 Change=(e)=>{
   e.preventDefault();
  this.setState({send:true});
@@ -34,12 +30,10 @@ handleChange=e=>{
    const  renderName = () => {
      console.log(this.state.send);
       if (this.state.send) {
-        return <div><Name data={data}/><br/><button onClick={this.edit} className="btn btn-primary">EDIT</button></div>;
-      } 
-    }
-    return (
-    <React.Fragment>
-      <div className="container ct">
+        return <div className="container ct2"><Name data={data}/><br/><button onClick={this.edit} className="btn btn-primary">EDIT</button></div>;
+      } else{
+        return(<React.Fragment>
+        <div className="container ct">
         <form><div class="mb-3 row">
           <label className=" col-sm-2 col-form-label">Name</label>
           <div className="col-sm-10">
@@ -63,14 +57,17 @@ handleChange=e=>{
         <button onClick={this.Change} className="  btn btn-primary mar">SUBMIT</button>
       </form>
       </div>
-     <div className="container ct2">
-     {
+     
+     
+    </React.Fragment>)
+      }
+    }
+    return (
+  
+      
        renderName()
 
-     }
-     </div>
      
-    </React.Fragment>
     )
-  }
-}
+      }
+    }
