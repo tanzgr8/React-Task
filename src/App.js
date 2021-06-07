@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Name from "./Name";
 import "./app.css";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 export default function App() {
   const [name, setName] = useState("");
   const [country, setCountry] = useState("");
@@ -15,19 +16,17 @@ export default function App() {
     setSend(false);
   };
 
-  const renderName = () => {
-    if (send) {
-      return (
-        <div className="container ct2">
-          <Name name={name} country={country} capital={capital} />
-          <br />
-          <button onClick={Edit} className="btn btn-primary">
-            EDIT
-          </button>
-        </div>
-      );
-    } else {
-      return (
+  return (
+    <main>
+      <Switch>
+        <Route
+          exact
+          path="/result"
+          render={(props) => (
+            <Name name={name} country={country} capital={capital} />
+          )}
+        />
+
         <React.Fragment>
           <div className="container ct">
             <form>
@@ -71,15 +70,17 @@ export default function App() {
                   />
                 </div>
               </div>
-
-              <button onClick={Change} className="  btn btn-primary mar">
-                SUBMIT
-              </button>
+              <Link
+                className="btn btn-primary btn-lg"
+                role="button"
+                to="/result"
+              >
+                Submit
+              </Link>
             </form>
           </div>
         </React.Fragment>
-      );
-    }
-  };
-  return renderName();
+      </Switch>
+    </main>
+  );
 }
